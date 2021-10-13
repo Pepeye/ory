@@ -6,7 +6,8 @@ set -o nounset
 set -x
 
 # hydra
-docker run --rm -v ${PWD}:/local openapitools/openapi-generator-cli:latest generate -i https://raw.githubusercontent.com/ory/hydra/v1.1.1/docs/api.swagger.json --package-name hydra --library reqwest -g rust -o /local/hydra
+docker run --rm -v ${PWD}:/local openapitools/openapi-generator-cli:latest generate -i https://raw.githubusercontent.com/ory/hydra/v1.10.6/spec/api.json --package-name hydra --library reqwest -g rust -o /local/hydra
+# docker run --rm -v ${PWD}:/local openapitools/openapi-generator-cli:latest generate -i https://raw.githubusercontent.com/ory/hydra/v1.1.1/docs/api.swagger.json --package-name hydra --library reqwest -g rust -o /local/hydra
 # docker run --rm -v ${PWD}:/local openapitools/openapi-generator-cli:latest generate -i https://raw.githubusercontent.com/ory/hydra/v1.1.1/spec/api.json --package-name hydra --library reqwest -g rust -o /local/hydra
 
 # kratos
