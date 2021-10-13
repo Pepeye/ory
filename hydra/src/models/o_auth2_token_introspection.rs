@@ -20,7 +20,7 @@ pub struct OAuth2TokenIntrospection {
     /// Audience contains a list of the token's intended audiences.
     #[serde(rename = "aud", skip_serializing_if = "Option::is_none")]
     pub aud: Option<Vec<String>>,
-    /// ID is aclient identifier for the OAuth 2.0 client that requested this token.
+    /// ClientID is aclient identifier for the OAuth 2.0 client that requested this token.
     #[serde(rename = "client_id", skip_serializing_if = "Option::is_none")]
     pub client_id: Option<String>,
     /// Expires at is an integer timestamp, measured in the number of seconds since January 1 1970 UTC, indicating when this token will expire.
@@ -28,7 +28,7 @@ pub struct OAuth2TokenIntrospection {
     pub exp: Option<i64>,
     /// Extra is arbitrary data set by the session.
     #[serde(rename = "ext", skip_serializing_if = "Option::is_none")]
-    pub ext: Option<serde_json::Value>,
+    pub ext: Option<::std::collections::HashMap<String, serde_json::Value>>,
     /// Issued at is an integer timestamp, measured in the number of seconds since January 1 1970 UTC, indicating when this token was originally issued.
     #[serde(rename = "iat", skip_serializing_if = "Option::is_none")]
     pub iat: Option<i64>,
@@ -47,12 +47,9 @@ pub struct OAuth2TokenIntrospection {
     /// Subject of the token, as defined in JWT [RFC7519]. Usually a machine-readable identifier of the resource owner who authorized this token.
     #[serde(rename = "sub", skip_serializing_if = "Option::is_none")]
     pub sub: Option<String>,
-    /// TokenType is the introspected token's type, typically `Bearer`.
+    /// TokenType is the introspected token's type, for example `access_token` or `refresh_token`.
     #[serde(rename = "token_type", skip_serializing_if = "Option::is_none")]
     pub token_type: Option<String>,
-    /// TokenUse is the introspected token's use, for example `access_token` or `refresh_token`.
-    #[serde(rename = "token_use", skip_serializing_if = "Option::is_none")]
-    pub token_use: Option<String>,
     /// Username is a human-readable identifier for the resource owner who authorized this token.
     #[serde(rename = "username", skip_serializing_if = "Option::is_none")]
     pub username: Option<String>,
@@ -74,7 +71,6 @@ impl OAuth2TokenIntrospection {
             scope: None,
             sub: None,
             token_type: None,
-            token_use: None,
             username: None,
         }
     }

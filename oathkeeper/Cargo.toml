@@ -1,6 +1,6 @@
 [package]
 name = "oathkeeper"
-version = "Latest"
+version = "0.38.16"
 authors = ["OpenAPI Generator team and contributors"]
 edition = "2018"
 

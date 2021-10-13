@@ -14,14 +14,14 @@
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct CompletedRequest {
     /// RedirectURL is the URL which you should redirect the user to once the authentication process is completed.
-    #[serde(rename = "redirect_to")]
-    pub redirect_to: String,
+    #[serde(rename = "redirect_to", skip_serializing_if = "Option::is_none")]
+    pub redirect_to: Option<String>,
 }
 
 impl CompletedRequest {
-    pub fn new(redirect_to: String) -> CompletedRequest {
+    pub fn new() -> CompletedRequest {
         CompletedRequest {
-            redirect_to,
+            redirect_to: None,
         }
     }
 }

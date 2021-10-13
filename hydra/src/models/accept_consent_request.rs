@@ -13,12 +13,12 @@
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct AcceptConsentRequest {
+    /// GrantedAudience sets the audience the user authorized the client to use. Should be a subset of `requested_access_token_audience`.
     #[serde(rename = "grant_access_token_audience", skip_serializing_if = "Option::is_none")]
     pub grant_access_token_audience: Option<Vec<String>>,
+    /// GrantScope sets the scope the user authorized the client to use. Should be a subset of `requested_scope`.
     #[serde(rename = "grant_scope", skip_serializing_if = "Option::is_none")]
     pub grant_scope: Option<Vec<String>>,
-    #[serde(rename = "handled_at", skip_serializing_if = "Option::is_none")]
-    pub handled_at: Option<String>,
     /// Remember, if set to true, tells ORY Hydra to remember this consent authorization and reuse it if the same client asks the same user for the same, or a subset of, scope.
     #[serde(rename = "remember", skip_serializing_if = "Option::is_none")]
     pub remember: Option<bool>,
@@ -34,7 +34,6 @@ impl AcceptConsentRequest {
         AcceptConsentRequest {
             grant_access_token_audience: None,
             grant_scope: None,
-            handled_at: None,
             remember: None,
             remember_for: None,
             session: None,

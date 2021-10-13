@@ -13,11 +13,6 @@
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct LogoutRequest {
-    /// Challenge is the identifier (\"logout challenge\") of the logout authentication request. It is used to identify the session.
-    #[serde(rename = "challenge", skip_serializing_if = "Option::is_none")]
-    pub challenge: Option<String>,
-    #[serde(rename = "client", skip_serializing_if = "Option::is_none")]
-    pub client: Option<Box<crate::models::OAuth2Client>>,
     /// RequestURL is the original Logout URL requested.
     #[serde(rename = "request_url", skip_serializing_if = "Option::is_none")]
     pub request_url: Option<String>,
@@ -35,8 +30,6 @@ pub struct LogoutRequest {
 impl LogoutRequest {
     pub fn new() -> LogoutRequest {
         LogoutRequest {
-            challenge: None,
-            client: None,
             request_url: None,
             rp_initiated: None,
             sid: None,

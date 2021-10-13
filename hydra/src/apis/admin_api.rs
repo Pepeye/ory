@@ -19,8 +19,8 @@ use super::{Error, configuration};
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum AcceptConsentRequestError {
-    Status404(crate::models::JsonError),
-    Status500(crate::models::JsonError),
+    Status404(crate::models::GenericError),
+    Status500(crate::models::GenericError),
     UnknownValue(serde_json::Value),
 }
 
@@ -28,10 +28,9 @@ pub enum AcceptConsentRequestError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum AcceptLoginRequestError {
-    Status400(crate::models::JsonError),
-    Status401(crate::models::JsonError),
-    Status404(crate::models::JsonError),
-    Status500(crate::models::JsonError),
+    Status401(crate::models::GenericError),
+    Status404(crate::models::GenericError),
+    Status500(crate::models::GenericError),
     UnknownValue(serde_json::Value),
 }
 
@@ -39,8 +38,8 @@ pub enum AcceptLoginRequestError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum AcceptLogoutRequestError {
-    Status404(crate::models::JsonError),
-    Status500(crate::models::JsonError),
+    Status404(crate::models::GenericError),
+    Status500(crate::models::GenericError),
     UnknownValue(serde_json::Value),
 }
 
@@ -48,9 +47,9 @@ pub enum AcceptLogoutRequestError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CreateJsonWebKeySetError {
-    Status401(crate::models::JsonError),
-    Status403(crate::models::JsonError),
-    Status500(crate::models::JsonError),
+    Status401(crate::models::GenericError),
+    Status403(crate::models::GenericError),
+    Status500(crate::models::GenericError),
     UnknownValue(serde_json::Value),
 }
 
@@ -58,9 +57,9 @@ pub enum CreateJsonWebKeySetError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CreateOAuth2ClientError {
-    Status400(crate::models::JsonError),
-    Status409(crate::models::JsonError),
-    Status500(crate::models::JsonError),
+    Status400(crate::models::GenericError),
+    Status409(crate::models::GenericError),
+    Status500(crate::models::GenericError),
     UnknownValue(serde_json::Value),
 }
 
@@ -68,9 +67,9 @@ pub enum CreateOAuth2ClientError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DeleteJsonWebKeyError {
-    Status401(crate::models::JsonError),
-    Status403(crate::models::JsonError),
-    Status500(crate::models::JsonError),
+    Status401(crate::models::GenericError),
+    Status403(crate::models::GenericError),
+    Status500(crate::models::GenericError),
     UnknownValue(serde_json::Value),
 }
 
@@ -78,9 +77,9 @@ pub enum DeleteJsonWebKeyError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DeleteJsonWebKeySetError {
-    Status401(crate::models::JsonError),
-    Status403(crate::models::JsonError),
-    Status500(crate::models::JsonError),
+    Status401(crate::models::GenericError),
+    Status403(crate::models::GenericError),
+    Status500(crate::models::GenericError),
     UnknownValue(serde_json::Value),
 }
 
@@ -88,17 +87,8 @@ pub enum DeleteJsonWebKeySetError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DeleteOAuth2ClientError {
-    Status404(crate::models::JsonError),
-    Status500(crate::models::JsonError),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`delete_o_auth2_token`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum DeleteOAuth2TokenError {
-    Status401(crate::models::JsonError),
-    Status500(crate::models::JsonError),
+    Status404(crate::models::GenericError),
+    Status500(crate::models::GenericError),
     UnknownValue(serde_json::Value),
 }
 
@@ -106,8 +96,8 @@ pub enum DeleteOAuth2TokenError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum FlushInactiveOAuth2TokensError {
-    Status401(crate::models::JsonError),
-    Status500(crate::models::JsonError),
+    Status401(crate::models::GenericError),
+    Status500(crate::models::GenericError),
     UnknownValue(serde_json::Value),
 }
 
@@ -115,9 +105,9 @@ pub enum FlushInactiveOAuth2TokensError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetConsentRequestError {
-    Status404(crate::models::JsonError),
-    Status410(crate::models::RequestWasHandledResponse),
-    Status500(crate::models::JsonError),
+    Status404(crate::models::GenericError),
+    Status409(crate::models::GenericError),
+    Status500(crate::models::GenericError),
     UnknownValue(serde_json::Value),
 }
 
@@ -125,8 +115,8 @@ pub enum GetConsentRequestError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetJsonWebKeyError {
-    Status404(crate::models::JsonError),
-    Status500(crate::models::JsonError),
+    Status404(crate::models::GenericError),
+    Status500(crate::models::GenericError),
     UnknownValue(serde_json::Value),
 }
 
@@ -134,9 +124,9 @@ pub enum GetJsonWebKeyError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetJsonWebKeySetError {
-    Status401(crate::models::JsonError),
-    Status403(crate::models::JsonError),
-    Status500(crate::models::JsonError),
+    Status401(crate::models::GenericError),
+    Status403(crate::models::GenericError),
+    Status500(crate::models::GenericError),
     UnknownValue(serde_json::Value),
 }
 
@@ -144,10 +134,10 @@ pub enum GetJsonWebKeySetError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetLoginRequestError {
-    Status400(crate::models::JsonError),
-    Status404(crate::models::JsonError),
-    Status410(crate::models::RequestWasHandledResponse),
-    Status500(crate::models::JsonError),
+    Status400(crate::models::GenericError),
+    Status404(crate::models::GenericError),
+    Status409(crate::models::GenericError),
+    Status500(crate::models::GenericError),
     UnknownValue(serde_json::Value),
 }
 
@@ -155,9 +145,8 @@ pub enum GetLoginRequestError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetLogoutRequestError {
-    Status404(crate::models::JsonError),
-    Status410(crate::models::RequestWasHandledResponse),
-    Status500(crate::models::JsonError),
+    Status404(crate::models::GenericError),
+    Status500(crate::models::GenericError),
     UnknownValue(serde_json::Value),
 }
 
@@ -165,8 +154,8 @@ pub enum GetLogoutRequestError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetOAuth2ClientError {
-    Status401(crate::models::JsonError),
-    Status500(crate::models::JsonError),
+    Status404(crate::models::GenericError),
+    Status500(crate::models::GenericError),
     UnknownValue(serde_json::Value),
 }
 
@@ -181,8 +170,8 @@ pub enum GetVersionError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum IntrospectOAuth2TokenError {
-    Status401(crate::models::JsonError),
-    Status500(crate::models::JsonError),
+    Status401(crate::models::GenericError),
+    Status500(crate::models::GenericError),
     UnknownValue(serde_json::Value),
 }
 
@@ -190,7 +179,7 @@ pub enum IntrospectOAuth2TokenError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum IsInstanceAliveError {
-    Status500(crate::models::JsonError),
+    Status500(crate::models::GenericError),
     UnknownValue(serde_json::Value),
 }
 
@@ -198,7 +187,7 @@ pub enum IsInstanceAliveError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ListOAuth2ClientsError {
-    Status500(crate::models::JsonError),
+    Status500(crate::models::GenericError),
     UnknownValue(serde_json::Value),
 }
 
@@ -206,16 +195,16 @@ pub enum ListOAuth2ClientsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ListSubjectConsentSessionsError {
-    Status400(crate::models::JsonError),
-    Status500(crate::models::JsonError),
+    Status400(crate::models::GenericError),
+    Status404(crate::models::GenericError),
+    Status500(crate::models::GenericError),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`patch_o_auth2_client`]
+/// struct for typed errors of method [`prometheus`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum PatchOAuth2ClientError {
-    Status500(crate::models::JsonError),
+pub enum PrometheusError {
     UnknownValue(serde_json::Value),
 }
 
@@ -223,8 +212,8 @@ pub enum PatchOAuth2ClientError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum RejectConsentRequestError {
-    Status404(crate::models::JsonError),
-    Status500(crate::models::JsonError),
+    Status404(crate::models::GenericError),
+    Status500(crate::models::GenericError),
     UnknownValue(serde_json::Value),
 }
 
@@ -232,10 +221,9 @@ pub enum RejectConsentRequestError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum RejectLoginRequestError {
-    Status400(crate::models::JsonError),
-    Status401(crate::models::JsonError),
-    Status404(crate::models::JsonError),
-    Status500(crate::models::JsonError),
+    Status401(crate::models::GenericError),
+    Status404(crate::models::GenericError),
+    Status500(crate::models::GenericError),
     UnknownValue(serde_json::Value),
 }
 
@@ -243,8 +231,8 @@ pub enum RejectLoginRequestError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum RejectLogoutRequestError {
-    Status404(crate::models::JsonError),
-    Status500(crate::models::JsonError),
+    Status404(crate::models::GenericError),
+    Status500(crate::models::GenericError),
     UnknownValue(serde_json::Value),
 }
 
@@ -252,8 +240,9 @@ pub enum RejectLogoutRequestError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum RevokeAuthenticationSessionError {
-    Status400(crate::models::JsonError),
-    Status500(crate::models::JsonError),
+    Status400(crate::models::GenericError),
+    Status404(crate::models::GenericError),
+    Status500(crate::models::GenericError),
     UnknownValue(serde_json::Value),
 }
 
@@ -261,8 +250,9 @@ pub enum RevokeAuthenticationSessionError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum RevokeConsentSessionsError {
-    Status400(crate::models::JsonError),
-    Status500(crate::models::JsonError),
+    Status400(crate::models::GenericError),
+    Status404(crate::models::GenericError),
+    Status500(crate::models::GenericError),
     UnknownValue(serde_json::Value),
 }
 
@@ -270,9 +260,9 @@ pub enum RevokeConsentSessionsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UpdateJsonWebKeyError {
-    Status401(crate::models::JsonError),
-    Status403(crate::models::JsonError),
-    Status500(crate::models::JsonError),
+    Status401(crate::models::GenericError),
+    Status403(crate::models::GenericError),
+    Status500(crate::models::GenericError),
     UnknownValue(serde_json::Value),
 }
 
@@ -280,9 +270,9 @@ pub enum UpdateJsonWebKeyError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UpdateJsonWebKeySetError {
-    Status401(crate::models::JsonError),
-    Status403(crate::models::JsonError),
-    Status500(crate::models::JsonError),
+    Status401(crate::models::GenericError),
+    Status403(crate::models::GenericError),
+    Status500(crate::models::GenericError),
     UnknownValue(serde_json::Value),
 }
 
@@ -290,7 +280,7 @@ pub enum UpdateJsonWebKeySetError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UpdateOAuth2ClientError {
-    Status500(crate::models::JsonError),
+    Status500(crate::models::GenericError),
     UnknownValue(serde_json::Value),
 }
 
@@ -526,35 +516,6 @@ pub async fn delete_o_auth2_client(configuration: &configuration::Configuration,
     }
 }
 
-/// This endpoint deletes OAuth2 access tokens issued for a client from the database
-pub async fn delete_o_auth2_token(configuration: &configuration::Configuration, client_id: &str) -> Result<(), Error<DeleteOAuth2TokenError>> {
-    let local_var_configuration = configuration;
-
-    let local_var_client = &local_var_configuration.client;
-
-    let local_var_uri_str = format!("{}/oauth2/tokens", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
-
-    local_var_req_builder = local_var_req_builder.query(&[("client_id", &client_id.to_string())]);
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
-    }
-
-    let local_var_req = local_var_req_builder.build()?;
-    let local_var_resp = local_var_client.execute(local_var_req).await?;
-
-    let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
-
-    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        Ok(())
-    } else {
-        let local_var_entity: Option<DeleteOAuth2TokenError> = serde_json::from_str(&local_var_content).ok();
-        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
-        Err(Error::ResponseError(local_var_error))
-    }
-}
-
 /// This endpoint flushes expired OAuth2 access tokens from the database. You can set a time after which no tokens will be not be touched, in case you want to keep recent tokens for auditing. Refresh tokens can not be flushed as they are deleted automatically when performing the refresh flow.
 pub async fn flush_inactive_o_auth2_tokens(configuration: &configuration::Configuration, body: Option<crate::models::FlushInactiveOAuth2TokensRequest>) -> Result<(), Error<FlushInactiveOAuth2TokensError>> {
     let local_var_configuration = configuration;
@@ -755,7 +716,7 @@ pub async fn get_o_auth2_client(configuration: &configuration::Configuration, id
     }
 }
 
-/// This endpoint returns the service version typically notated using semantic versioning.  If the service supports TLS Edge Termination, this endpoint does not require the `X-Forwarded-Proto` header to be set.
+/// This endpoint returns the service version typically notated using semantic versioning.  If the service supports TLS Edge Termination, this endpoint does not require the `X-Forwarded-Proto` header to be set.  Be aware that if you are running multiple nodes of this service, the health status will never refer to the cluster state, only to a single instance.
 pub async fn get_version(configuration: &configuration::Configuration, ) -> Result<crate::models::Version, Error<GetVersionError>> {
     let local_var_configuration = configuration;
 
@@ -795,6 +756,12 @@ pub async fn introspect_o_auth2_token(configuration: &configuration::Configurati
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
+    if let Some(ref local_var_auth_conf) = local_var_configuration.basic_auth {
+        local_var_req_builder = local_var_req_builder.basic_auth(local_var_auth_conf.0.to_owned(), local_var_auth_conf.1.to_owned());
+    };
+    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
     let mut local_var_form_params = std::collections::HashMap::new();
     local_var_form_params.insert("token", token.to_string());
     if let Some(local_var_param_value) = scope {
@@ -845,8 +812,8 @@ pub async fn is_instance_alive(configuration: &configuration::Configuration, ) -
     }
 }
 
-/// This endpoint lists all clients in the database, and never returns client secrets. As a default it lists the first 100 clients. The `limit` parameter can be used to retrieve more clients, but it has an upper bound at 500 objects. Pagination should be used to retrieve more than 500 objects.  OAuth 2.0 clients are used to perform OAuth 2.0 and OpenID Connect flows. Usually, OAuth 2.0 clients are generated for applications which want to consume your OAuth 2.0 or OpenID Connect capabilities. To manage ORY Hydra, you will need an OAuth 2.0 Client as well. Make sure that this endpoint is well protected and only callable by first-party components. The \"Link\" header is also included in successful responses, which contains one or more links for pagination, formatted like so: '<https://hydra-url/admin/clients?limit={limit}&offset={offset}>; rel=\"{page}\"', where page is one of the following applicable pages: 'first', 'next', 'last', and 'previous'. Multiple links can be included in this header, and will be separated by a comma.
-pub async fn list_o_auth2_clients(configuration: &configuration::Configuration, limit: Option<i64>, offset: Option<i64>, name: Option<&str>, owner: Option<&str>) -> Result<Vec<crate::models::OAuth2Client>, Error<ListOAuth2ClientsError>> {
+/// This endpoint lists all clients in the database, and never returns client secrets.  OAuth 2.0 clients are used to perform OAuth 2.0 and OpenID Connect flows. Usually, OAuth 2.0 clients are generated for applications which want to consume your OAuth 2.0 or OpenID Connect capabilities. To manage ORY Hydra, you will need an OAuth 2.0 Client as well. Make sure that this endpoint is well protected and only callable by first-party components. The \"Link\" header is also included in successful responses, which contains one or more links for pagination, formatted like so: '<https://hydra-url/admin/clients?limit={limit}&offset={offset}>; rel=\"{page}\"', where page is one of the following applicable pages: 'first', 'next', 'last', and 'previous'. Multiple links can be included in this header, and will be separated by a comma.
+pub async fn list_o_auth2_clients(configuration: &configuration::Configuration, limit: Option<i64>, offset: Option<i64>) -> Result<Vec<crate::models::OAuth2Client>, Error<ListOAuth2ClientsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -859,12 +826,6 @@ pub async fn list_o_auth2_clients(configuration: &configuration::Configuration, 
     }
     if let Some(ref local_var_str) = offset {
         local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
-    }
-    if let Some(ref local_var_str) = name {
-        local_var_req_builder = local_var_req_builder.query(&[("name", &local_var_str.to_string())]);
-    }
-    if let Some(ref local_var_str) = owner {
-        local_var_req_builder = local_var_req_builder.query(&[("owner", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -885,7 +846,7 @@ pub async fn list_o_auth2_clients(configuration: &configuration::Configuration, 
     }
 }
 
-/// This endpoint lists all subject's granted consent sessions, including client and granted scope. If the subject is unknown or has not granted any consent sessions yet, the endpoint returns an empty JSON array with status code 200 OK.   The \"Link\" header is also included in successful responses, which contains one or more links for pagination, formatted like so: '<https://hydra-url/admin/oauth2/auth/sessions/consent?subject={user}&limit={limit}&offset={offset}>; rel=\"{page}\"', where page is one of the following applicable pages: 'first', 'next', 'last', and 'previous'. Multiple links can be included in this header, and will be separated by a comma.
+/// This endpoint lists all subject's granted consent sessions, including client and granted scope. The \"Link\" header is also included in successful responses, which contains one or more links for pagination, formatted like so: '<https://hydra-url/admin/oauth2/auth/sessions/consent?subject={user}&limit={limit}&offset={offset}>; rel=\"{page}\"', where page is one of the following applicable pages: 'first', 'next', 'last', and 'previous'. Multiple links can be included in this header, and will be separated by a comma.
 pub async fn list_subject_consent_sessions(configuration: &configuration::Configuration, subject: &str) -> Result<Vec<crate::models::PreviousConsentSession>, Error<ListSubjectConsentSessionsError>> {
     let local_var_configuration = configuration;
 
@@ -914,19 +875,18 @@ pub async fn list_subject_consent_sessions(configuration: &configuration::Config
     }
 }
 
-/// Patch an existing OAuth 2.0 Client. If you pass `client_secret` the secret will be updated and returned via the API. This is the only time you will be able to retrieve the client secret, so write it down and keep it safe.  OAuth 2.0 clients are used to perform OAuth 2.0 and OpenID Connect flows. Usually, OAuth 2.0 clients are generated for applications which want to consume your OAuth 2.0 or OpenID Connect capabilities. To manage ORY Hydra, you will need an OAuth 2.0 Client as well. Make sure that this endpoint is well protected and only callable by first-party components.
-pub async fn patch_o_auth2_client(configuration: &configuration::Configuration, id: &str, body: Vec<crate::models::PatchDocument>) -> Result<crate::models::OAuth2Client, Error<PatchOAuth2ClientError>> {
+/// ``` metadata: annotations: prometheus.io/port: \"4445\" prometheus.io/path: \"/metrics/prometheus\" ```
+pub async fn prometheus(configuration: &configuration::Configuration, ) -> Result<(), Error<PrometheusError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/clients/{id}", local_var_configuration.base_path, id=crate::apis::urlencode(id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::PATCH, local_var_uri_str.as_str());
+    let local_var_uri_str = format!("{}/metrics/prometheus", local_var_configuration.base_path);
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    local_var_req_builder = local_var_req_builder.json(&body);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -935,9 +895,9 @@ pub async fn patch_o_auth2_client(configuration: &configuration::Configuration, 
     let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        serde_json::from_str(&local_var_content).map_err(Error::from)
+        Ok(())
     } else {
-        let local_var_entity: Option<PatchOAuth2ClientError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<PrometheusError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
     }
@@ -1063,7 +1023,7 @@ pub async fn revoke_authentication_session(configuration: &configuration::Config
 }
 
 /// This endpoint revokes a subject's granted consent sessions for a specific OAuth 2.0 Client and invalidates all associated OAuth 2.0 Access Tokens.
-pub async fn revoke_consent_sessions(configuration: &configuration::Configuration, subject: &str, client: Option<&str>, all: Option<bool>) -> Result<(), Error<RevokeConsentSessionsError>> {
+pub async fn revoke_consent_sessions(configuration: &configuration::Configuration, subject: &str, client: Option<&str>) -> Result<(), Error<RevokeConsentSessionsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1074,9 +1034,6 @@ pub async fn revoke_consent_sessions(configuration: &configuration::Configuratio
     local_var_req_builder = local_var_req_builder.query(&[("subject", &subject.to_string())]);
     if let Some(ref local_var_str) = client {
         local_var_req_builder = local_var_req_builder.query(&[("client", &local_var_str.to_string())]);
-    }
-    if let Some(ref local_var_str) = all {
-        local_var_req_builder = local_var_req_builder.query(&[("all", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());

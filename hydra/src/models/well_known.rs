@@ -29,9 +29,6 @@ pub struct WellKnown {
     /// JSON array containing a list of the Claim Names of the Claims that the OpenID Provider MAY be able to supply values for. Note that for privacy or other reasons, this might not be an exhaustive list.
     #[serde(rename = "claims_supported", skip_serializing_if = "Option::is_none")]
     pub claims_supported: Option<Vec<String>>,
-    /// JSON array containing a list of Proof Key for Code Exchange (PKCE) [RFC7636] code challenge methods supported by this authorization server.
-    #[serde(rename = "code_challenge_methods_supported", skip_serializing_if = "Option::is_none")]
-    pub code_challenge_methods_supported: Option<Vec<String>>,
     /// URL at the OP to which an RP can perform a redirect to request that the End-User be logged out at the OP.
     #[serde(rename = "end_session_endpoint", skip_serializing_if = "Option::is_none")]
     pub end_session_endpoint: Option<String>,
@@ -56,9 +53,6 @@ pub struct WellKnown {
     /// URL of the OP's Dynamic Client Registration Endpoint.
     #[serde(rename = "registration_endpoint", skip_serializing_if = "Option::is_none")]
     pub registration_endpoint: Option<String>,
-    /// JSON array containing a list of the JWS signing algorithms (alg values) supported by the OP for Request Objects, which are described in Section 6.1 of OpenID Connect Core 1.0 [OpenID.Core]. These algorithms are used both when the Request Object is passed by value (using the request parameter) and when it is passed by reference (using the request_uri parameter).
-    #[serde(rename = "request_object_signing_alg_values_supported", skip_serializing_if = "Option::is_none")]
-    pub request_object_signing_alg_values_supported: Option<Vec<String>>,
     /// Boolean value specifying whether the OP supports use of the request parameter, with true indicating support.
     #[serde(rename = "request_parameter_supported", skip_serializing_if = "Option::is_none")]
     pub request_parameter_supported: Option<bool>,
@@ -106,7 +100,6 @@ impl WellKnown {
             backchannel_logout_supported: None,
             claims_parameter_supported: None,
             claims_supported: None,
-            code_challenge_methods_supported: None,
             end_session_endpoint: None,
             frontchannel_logout_session_supported: None,
             frontchannel_logout_supported: None,
@@ -115,7 +108,6 @@ impl WellKnown {
             issuer,
             jwks_uri,
             registration_endpoint: None,
-            request_object_signing_alg_values_supported: None,
             request_parameter_supported: None,
             request_uri_parameter_supported: None,
             require_request_uri_registration: None,

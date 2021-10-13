@@ -3,5 +3,5 @@ members = [
     "hydra",
     "kratos",
     "oathkeeper",
-    "keto"
+    # "keto"
 ]

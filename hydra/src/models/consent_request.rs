@@ -16,13 +16,14 @@ pub struct ConsentRequest {
     /// ACR represents the Authentication AuthorizationContext Class Reference value for this authentication session. You can use it to express that, for example, a user authenticated using two factor authentication.
     #[serde(rename = "acr", skip_serializing_if = "Option::is_none")]
     pub acr: Option<String>,
-    /// ID is the identifier (\"authorization challenge\") of the consent authorization request. It is used to identify the session.
-    #[serde(rename = "challenge")]
-    pub challenge: String,
+    /// Challenge is the identifier (\"authorization challenge\") of the consent authorization request. It is used to identify the session.
+    #[serde(rename = "challenge", skip_serializing_if = "Option::is_none")]
+    pub challenge: Option<String>,
     #[serde(rename = "client", skip_serializing_if = "Option::is_none")]
     pub client: Option<Box<crate::models::OAuth2Client>>,
+    /// Context contains arbitrary information set by the login endpoint or is empty if not set.
     #[serde(rename = "context", skip_serializing_if = "Option::is_none")]
-    pub context: Option<serde_json::Value>,
+    pub context: Option<::std::collections::HashMap<String, serde_json::Value>>,
     /// LoginChallenge is the login challenge this consent challenge belongs to. It can be used to associate a login and consent request in the login & consent app.
     #[serde(rename = "login_challenge", skip_serializing_if = "Option::is_none")]
     pub login_challenge: Option<String>,
@@ -34,8 +35,10 @@ pub struct ConsentRequest {
     /// RequestURL is the original OAuth 2.0 Authorization URL requested by the OAuth 2.0 client. It is the URL which initiates the OAuth 2.0 Authorization Code or OAuth 2.0 Implicit flow. This URL is typically not needed, but might come in handy if you want to deal with additional request parameters.
     #[serde(rename = "request_url", skip_serializing_if = "Option::is_none")]
     pub request_url: Option<String>,
+    /// RequestedScope contains the access token audience as requested by the OAuth 2.0 Client.
     #[serde(rename = "requested_access_token_audience", skip_serializing_if = "Option::is_none")]
     pub requested_access_token_audience: Option<Vec<String>>,
+    /// RequestedScope contains the OAuth 2.0 Scope requested by the OAuth 2.0 Client.
     #[serde(rename = "requested_scope", skip_serializing_if = "Option::is_none")]
     pub requested_scope: Option<Vec<String>>,
     /// Skip, if true, implies that the client has requested the same scopes from the same user previously. If true, you must not ask the user to grant the requested scopes. You must however either allow or deny the consent request using the usual API call.
@@ -47,10 +50,10 @@ pub struct ConsentRequest {
 }
 
 impl ConsentRequest {
-    pub fn new(challenge: String) -> ConsentRequest {
+    pub fn new() -> ConsentRequest {
         ConsentRequest {
             acr: None,
-            challenge,
+            challenge: None,
             client: None,
             context: None,
             login_challenge: None,

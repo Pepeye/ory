@@ -1,6 +1,6 @@
 [package]
 name = "keto"
-version = "Latest"
+version = "0.7.0"
 authors = ["OpenAPI Generator team and contributors"]
 edition = "2018"
 
