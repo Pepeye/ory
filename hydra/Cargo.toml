@@ -1,6 +1,6 @@
 [package]
 name = "hydra"
-version = "1.1.1"
+version = "1.10.6"
 authors = ["OpenAPI Generator team and contributors"]
 edition = "2018"
 

@@ -26,8 +26,8 @@ pub enum DisconnectUserError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DiscoverOpenIdConfigurationError {
-    Status401(crate::models::GenericError),
-    Status500(crate::models::GenericError),
+    Status401(crate::models::JsonError),
+    Status500(crate::models::JsonError),
     UnknownValue(serde_json::Value),
 }
 
@@ -43,8 +43,9 @@ pub enum IsInstanceReadyError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum Oauth2TokenError {
-    Status401(crate::models::GenericError),
-    Status500(crate::models::GenericError),
+    Status400(crate::models::JsonError),
+    Status401(crate::models::JsonError),
+    Status500(crate::models::JsonError),
     UnknownValue(serde_json::Value),
 }
 
@@ -52,8 +53,8 @@ pub enum Oauth2TokenError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum OauthAuthError {
-    Status401(crate::models::GenericError),
-    Status500(crate::models::GenericError),
+    Status401(crate::models::JsonError),
+    Status500(crate::models::JsonError),
     UnknownValue(serde_json::Value),
 }
 
@@ -61,8 +62,8 @@ pub enum OauthAuthError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum RevokeOAuth2TokenError {
-    Status401(crate::models::GenericError),
-    Status500(crate::models::GenericError),
+    Status401(crate::models::JsonError),
+    Status500(crate::models::JsonError),
     UnknownValue(serde_json::Value),
 }
 
@@ -70,8 +71,8 @@ pub enum RevokeOAuth2TokenError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UserinfoError {
-    Status401(crate::models::GenericError),
-    Status500(crate::models::GenericError),
+    Status401(crate::models::JsonError),
+    Status500(crate::models::JsonError),
     UnknownValue(serde_json::Value),
 }
 
@@ -79,7 +80,7 @@ pub enum UserinfoError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum WellKnownError {
-    Status500(crate::models::GenericError),
+    Status500(crate::models::JsonError),
     UnknownValue(serde_json::Value),
 }
 
@@ -168,7 +169,7 @@ pub async fn is_instance_ready(configuration: &configuration::Configuration, ) -
     }
 }
 
-/// The client makes a request to the token endpoint by sending the following parameters using the \"application/x-www-form-urlencoded\" HTTP request entity-body.  > Do not implement a client for this endpoint yourself. Use a library. There are many libraries > available for any programming language. You can find a list of libraries here: https://oauth.net/code/ > > Do not the the Hydra SDK does not implement this endpoint properly. Use one of the libraries listed above!
+/// The client makes a request to the token endpoint by sending the following parameters using the \"application/x-www-form-urlencoded\" HTTP request entity-body.  > Do not implement a client for this endpoint yourself. Use a library. There are many libraries > available for any programming language. You can find a list of libraries here: https://oauth.net/code/ > > Do note that Hydra SDK does not implement this endpoint properly. Use one of the libraries listed above!
 pub async fn oauth2_token(configuration: &configuration::Configuration, grant_type: &str, code: Option<&str>, refresh_token: Option<&str>, redirect_uri: Option<&str>, client_id: Option<&str>) -> Result<crate::models::Oauth2TokenResponse, Error<Oauth2TokenError>> {
     let local_var_configuration = configuration;
 
@@ -282,7 +283,7 @@ pub async fn revoke_o_auth2_token(configuration: &configuration::Configuration, 
     }
 }
 
-/// This endpoint returns the payload of the ID Token, including the idTokenExtra values, of the provided OAuth 2.0 Access Token.  For more information please [refer to the spec](http://openid.net/specs/openid-connect-core-1_0.html#UserInfo).
+/// This endpoint returns the payload of the ID Token, including the idTokenExtra values, of the provided OAuth 2.0 Access Token.  For more information please [refer to the spec](http://openid.net/specs/openid-connect-core-1_0.html#UserInfo).  In the case of authentication error, a WWW-Authenticate header might be set in the response with more information about the error. See [the spec](https://datatracker.ietf.org/doc/html/rfc6750#section-3) for more details about header format.
 pub async fn userinfo(configuration: &configuration::Configuration, ) -> Result<crate::models::UserinfoResponse, Error<UserinfoError>> {
     let local_var_configuration = configuration;
 
